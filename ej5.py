@@ -55,10 +55,6 @@ def mixingRatio(T,P):
 def gammaDry(T_o,P_o,P):
     return potencial(T_o, P_o)*(P/p_o)**k
 
-# def gammaMoist(T_par,P_par,w_par, p_o,T):
-#     return T * p_o**k / potencialEquivalente(T_par, P_par, w_par) \
-#            * math.exp(l*mixingRatio(T, P) /(cp * T) )
-
 def gammaMoist(T_par,P_par,w_par, p_o,P):
     T = Symbol('T')
     return solve(T * (p_o/P)**k * math.exp(l*mixingRatio(T, P) /(cp * T))\
@@ -102,22 +98,3 @@ plt.show()
 
 
 
-# e_parcela = []
-
-# for i in range(len(p)):
-#     e_parcela.append(w[index_parcela]*p[i]/epsilon)
-
-# for i in range(len(e_parcela)-1):
-#     if e_parcela[i] >= e_sat_parcela and e_sat_parcela >= e_parcela[i+1]:
-#         NCA = p[i+1]/100
-#         print(NCA)
-#         index_NCA = i+1
-
-# T_parcela = []
-
-# for i in range(index_NCA):
-#     T_parcela.append(potencial(T[index_parcela], p[index_parcela])\
-#                      *(p[i]/p_o)**(k))
-# for i in range(index_NCA,len(p)):
-#     T_parcela.append(w[index_parcela]*l/cp * math.log(potencial(T[index_parcela], p[i])\
-#                                   /potencialEquivalente(T[index_parcela], p[i], w[index_parcela])))
